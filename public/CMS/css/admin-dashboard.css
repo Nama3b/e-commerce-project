@@ -1,0 +1,239 @@
+html, body{
+	font-family: 'Roboto Condensed', sans-serif !important;
+	font-size: 19px !important;
+	background-color: #272934 !important;
+}
+::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+  background-color: #1f2129;
+}
+
+::-webkit-scrollbar
+{
+  width: 9px;
+  background-color: #101217;
+}
+
+::-webkit-scrollbar-thumb
+{
+  background-color: #585858;
+  width: 9px;
+  border-radius: 5px;
+}
+
+.logo{
+	margin: 15px 10px 29px 29px;
+}
+.logo .closebtn{
+	color: white !important;
+}
+.logo a.logo-img{
+  padding: 0;
+}
+.sidebar {
+  	height: 100%;
+  	width: 300px;
+  	position: fixed;
+  	z-index: 1;
+  	top: 0;
+  	left: 0;
+  	background-color: #1f2129;
+  	overflow-x: hidden;
+  	transition: 0.5s;
+}
+.sidebar a {
+  	padding: 8px 8px 8px 32px;
+  	text-decoration: none;
+  	font-size: 19px;
+  	color: #818181;
+  	display: block;
+  	transition: 0.3s;
+    transition: all 0.35s ease-in-out;
+    transform: translateX(0);
+}
+.sidebar a:hover {
+  	color: #f1f1f1;
+  	text-decoration: none;
+    transform: translateX(20px);
+}
+.sidebar a:focus{
+  	color: #f1f1f1;
+  	text-decoration: none;
+    transform: translateX(20px);
+}
+.sidebar .closebtn {
+  	position: absolute;
+  	top: 0;
+  	right: 25px;
+  	font-size: 29px;
+  	margin-left: 50px;
+  	color: #997b41;
+    transition: all 0.35s ease-in-out;
+    transform: translateX(0);
+}
+.sidebar .closebtn:hover{
+    transform: translateX(-20px);
+}
+.sidebar i{
+	padding-right: 9px;
+}
+.sidebar h5{
+	color: white;
+	margin: 15px 0 15px 15px;
+}
+.sidebar hr{
+	margin: 0;
+	border-bottom: 1px solid grey;
+}
+
+#main{
+	margin-left: 302px;
+}
+.header-section{
+	display: flex;
+	background: #1f2129;
+	padding: 15px 0;
+}
+.header-left .openbtn{
+	background: none;
+	color: white;
+	border: none;
+	font-size: 25px;
+	margin: 0 15px;
+}
+.header-left .form-search input{
+	background: none;
+	color: white;
+	border: 2px solid white;
+	border-radius: 15px;
+	padding: 5px 5px 5px 29px;
+	margin-left: 15px;
+}
+.header-right{
+	display: flex;
+	justify-content: right;
+	padding-right: 29px !important;
+}
+.header-right i{
+	color: white;
+}
+.header-right .noti-icon i{
+	font-size: 29px;
+	padding: 8px 15px 0 0;
+}
+.header-right button{
+	border-radius: 50%;
+	padding: 3px;
+}
+.header-right img{
+	border-radius: 50%;
+}
+.dropdown .dropdown-menu{
+	margin-left: -121px;
+	margin-top: 20px;
+	background: #17181e;
+}
+.dropdown-menu a{
+	color: #919395 !important;
+}
+.dropdown-menu hr{
+    margin: 5px 0;
+    border-bottom: 1px solid grey;
+}
+.dropdown-menu li:hover{
+    background: #313442 !important;
+}
+
+.body-section{
+	margin: 15px;
+	padding: 15px;
+	background: #1f2129;
+	color: #919395;
+}
+.body-section .col-4 a{
+    color: #919395 !important;
+}
+.body-section .col-4 a{
+    color: #919395;
+    text-decoration: none;
+}
+.jumbotron{
+	background: #313442 !important;
+	padding: 30px;
+	margin: 10px;
+}
+.jumbotron h2{
+	color: white;
+}
+.body-section .col-4{
+    padding: 0;
+}
+.body-section .inner-item{
+	background: #313442;
+	padding: 20px;
+	margin: 10px;
+	border-radius: 4px;
+}
+.body-section .inner-item:hover{
+	cursor: pointer;
+	background: #464a5e;
+}
+.inner-item i{
+	color: white;
+	font-size: 29px;
+}
+.inner-item h5{
+	color: white;
+}
+.inner-item p{
+	margin-bottom: 0;
+}
+
+
+/* ======================PRODUCT-LIST====================== */
+
+#table-manage{
+    margin-top: 29px;
+    margin-left: 300px;
+}
+.card{
+    background: #1f2129 !important;
+    color: #818181 !important;
+}
+.card th{
+    color: white !important;
+}
+.card a{
+    width: fit-content;
+}
+#table-manage .form-group input, #table-manage .form-group select, #table-manage .form-group textarea{
+    background: none;
+    border: 2px solid grey;
+    color: white;
+}
+.card-body .text-alert{
+    color: lightgreen;
+}
+.card-body .text-alert:hover{
+    color: green;
+}
+.card-body select{
+    padding: 5px 29px;
+}
+.card-body option{
+    background: #272934;
+}
+.card-body option:focus{
+    background: #14151a;
+}
+.card-body td a{
+  color: #818181;
+}
+.card-body td a:hover{
+  color: white;
+  text-decoration: none;
+}
+.card-body hr{
+    border-bottom: 1px solid grey;
+}
