@@ -1,0 +1,72 @@
+html, body{
+    font-family: 'Roboto Condensed', sans-serif !important;
+    font-size: 19px !important;
+    background-color: #efefef !important;
+}
+.header{
+    margin: 29px 0;
+}
+.header hr{
+    width: 100%;
+    border-bottom: 2px solid black;
+}
+.body{
+    margin-top: 64px;
+}
+
+ul{
+    justify-content: center;
+}
+ul li{
+    text-align: center;
+    padding: 0 !important;
+}
+ul li a{
+    color: black;
+}
+ul li a:hover{
+    color: grey;
+    text-decoration: none;
+}
+.form-input{
+    padding: 2px 18px 9px 18px;
+    background: white;
+}
+.form-input input{
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid grey;
+    margin: 9px 0;
+    height: 45px;
+    padding-left: 10px;
+}
+.form-input input.checkbox{
+    width: 25px;
+    margin-top: -8px;
+    margin-right: 9px;
+}
+.form-input button{
+    width: 100%;
+}
+.nav-tabs a{
+    font-weight: bold;
+}
+.nav-tabs a:focus{
+    color: grey;
+    text-decoration: none;
+}
+.error-item{
+    background: #ff9e9e;
+    border-radius: 10px;
+}
+.error-item ul{
+    margin-bottom: 0 !important;
+    padding: 0px 22px;
+}
+.error-item ul.errors li{
+    display: block;
+    text-align: left;
+    color: red;
+    font-weight: bold;
+}
+
