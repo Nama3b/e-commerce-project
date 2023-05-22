@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('content');
             $table->enum('post_type', ['BLOG', 'NEWS']);
-            $table->boolean('status')->default(0);
+            $table->enum('status', ['WAITING', 'ACTIVE', 'CLOSED'])->default('WAITING');
             $table->timestamps();
             $table->softDeletes();
 
