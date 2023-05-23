@@ -45,7 +45,6 @@ class Post extends Model
 {
     use HasFactory, SoftDeletes;
 
-
     const STATUS = ['WAITING', 'ACTIVE', 'CLOSED'];
     const POST_TYPE = ['PRODUCT', 'POST'];
     const CREATE = 'CREATE_POST';
@@ -74,13 +73,16 @@ class Post extends Model
     /**
      * @return BelongsTo
      */
-    public function member_author(): BelongsTo
+    public function member(): BelongsTo
     {
-        return $this->belongsTo(Member::class,'author','id');
+        return $this->belongsTo(Member::class,'id','author');
     }
 
-    public function customer_author(): BelongsTo
+    /**
+     * @return BelongsTo
+     */
+    public function customer(): BelongsTo
     {
-        return $this->belongsTo(Customer::class,'author', 'id');
+        return $this->belongsTo(Customer::class,'id', 'author');
     }
 }

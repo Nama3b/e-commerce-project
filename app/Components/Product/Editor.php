@@ -3,7 +3,6 @@
 namespace App\Components\Product;
 
 use App\Components\Common\ProductCommonClass;
-use App\Models\Post;
 use App\Models\Product;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -19,11 +18,11 @@ class Editor extends ProductCommonClass
     }
 
     /**
-     * @param Product $post
+     * @param Product $Product
      * @return bool
      */
-    public function edit(Product $post): bool
+    public function edit(Product $Product): bool
     {
-        return $post->update($this->buildCreateData(true, $post));
+        return $Product->update($this->buildCreateData(true, $Product));
     }
 }

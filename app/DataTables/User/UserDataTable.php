@@ -2,7 +2,7 @@
 
 namespace App\DataTables\User;
 
-use App\Models\User;
+use App\Models\Admin;
 use App\Support\DataTableCommonFunction;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Gate;
@@ -33,13 +33,13 @@ class UserDataTable extends DataTable
             ->filter(function ($query) {
                 $this->buildQuerySearch($query);
             })
-            ->addColumn('action', function (User $user) {
+            ->addColumn('action', function (Admin $user) {
                 return $this->buildAction($user);
             })
-            ->editColumn('role_id', function (User $user) {
+            ->editColumn('role_id', function (Admin $user) {
                 return optional($user->role)->name;
             })
-            ->editColumn('status', function (User $user) {
+            ->editColumn('status', function (Admin $user) {
                 return $this->buildStatus($user->status);
             })
             ->rawColumns(['action', 'status']);
@@ -61,9 +61,9 @@ class UserDataTable extends DataTable
      */
     private function buildAction($station): string
     {
-        $action = Gate::allows(User::EDIT) ? '<a class="btn btn-secondary btn-hover-brown btn-sm edit" data-id="' . $station->id .
+        $action = Gate::allows(Admin::EDIT) ? '<a class="btn btn-secondary btn-hover-brown btn-sm edit" data-id="' . $station->id .
             '" id="inline_edit">' . __("generate.translate.button.edit") . '</a> ' : '';
-        $action .= Gate::allows(User::DELETE) ? '<a class="btn btn-danger btn-sm delete" data-id="' . $station->id .
+        $action .= Gate::allows(Admin::DELETE) ? '<a class="btn btn-danger btn-sm delete" data-id="' . $station->id .
             '" id="inline_delete">' . __("generate.translate.button.delete") . '</a> ' : '';
         return $action;
     }
@@ -91,10 +91,10 @@ class UserDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param User $model
+     * @param Admin $model
      * @return Builder
      */
-    public function query(User $model): Builder
+    public function query(Admin $model): Builder
     {
         return $model->newQuery()->with('role');
     }
@@ -111,7 +111,7 @@ class UserDataTable extends DataTable
             ->columns($this->getColumns())
             ->parameters($this->buildParameters())
 
-            ->ajax($this->buildAjaxData(User::class, 'user'))
+            ->ajax($this->buildAjaxData(Admin::class, 'user'))
             ->orderBy(0)
             ->buttons(
                 Button::make('excel')
