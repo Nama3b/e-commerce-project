@@ -2,11 +2,47 @@
 
 namespace App\Models;
 
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Carbon;
 
+/**
+ * App\Models\Delivery
+ *
+ * @property int $id
+ * @property int $creator
+ * @property int $payment_option_id
+ * @property string $service_name
+ * @property float $delivery_fee
+ * @property string $delivery_time
+ * @property string|null $description
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Carbon|null $deleted_at
+ * @property-read Member|null $member
+ * @property-read PaymentOption|null $payments
+ * @method static Builder|Delivery newModelQuery()
+ * @method static Builder|Delivery newQuery()
+ * @method static Builder|Delivery onlyTrashed()
+ * @method static Builder|Delivery query()
+ * @method static Builder|Delivery whereCreatedAt($value)
+ * @method static Builder|Delivery whereCreator($value)
+ * @method static Builder|Delivery whereDeletedAt($value)
+ * @method static Builder|Delivery whereDeliveryFee($value)
+ * @method static Builder|Delivery whereDeliveryTime($value)
+ * @method static Builder|Delivery whereDescription($value)
+ * @method static Builder|Delivery whereId($value)
+ * @method static Builder|Delivery wherePaymentOptionId($value)
+ * @method static Builder|Delivery whereServiceName($value)
+ * @method static Builder|Delivery whereUpdatedAt($value)
+ * @method static Builder|Delivery withTrashed()
+ * @method static Builder|Delivery withoutTrashed()
+ * @mixin Eloquent
+ */
 class Delivery extends Model
 {
     use HasFactory, SoftDeletes;

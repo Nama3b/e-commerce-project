@@ -2,11 +2,44 @@
 
 namespace App\Models;
 
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Carbon;
 
+/**
+ * App\Models\Tag
+ *
+ * @property int $id
+ * @property int $reference_id
+ * @property int $creator
+ * @property string $name
+ * @property string $tag_type
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Carbon|null $deleted_at
+ * @property-read Member|null $member
+ * @property-read Post|null $posts
+ * @property-read Product|null $products
+ * @method static Builder|Tag newModelQuery()
+ * @method static Builder|Tag newQuery()
+ * @method static Builder|Tag onlyTrashed()
+ * @method static Builder|Tag query()
+ * @method static Builder|Tag whereCreatedAt($value)
+ * @method static Builder|Tag whereCreator($value)
+ * @method static Builder|Tag whereDeletedAt($value)
+ * @method static Builder|Tag whereId($value)
+ * @method static Builder|Tag whereName($value)
+ * @method static Builder|Tag whereReferenceId($value)
+ * @method static Builder|Tag whereTagType($value)
+ * @method static Builder|Tag whereUpdatedAt($value)
+ * @method static Builder|Tag withTrashed()
+ * @method static Builder|Tag withoutTrashed()
+ * @mixin Eloquent
+ */
 class Tag extends Model
 {
     use HasFactory, SoftDeletes;
