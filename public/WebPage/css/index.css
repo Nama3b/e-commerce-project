@@ -1,0 +1,630 @@
+html, body{
+	font-family: 'Roboto Condensed', sans-serif !important;
+	font-size: 19px !important;
+	background-color: #efefef !important;
+}
+
+/* ======================HOME====================== */
+.header-section{
+	padding-top: 10px;
+	background-color: white;
+    border-bottom: 1px solid grey;
+}
+.nav-left .form-search{
+	position: relative;
+}
+.nav-left .form-search input{
+	margin-left: 29px;
+	padding-left: 40px;
+	border: 2px solid black;
+	height: 44px;
+	background: none;
+	font-size: 17px;
+}
+.nav-right button a{
+	color: white;
+}
+.nav-right button a:hover{
+	color: grey;
+	border-bottom: none;
+}
+.form-search button{
+    font-size: 18px;
+    top: 3px;
+    left: 30px;
+    background: none;
+    position: absolute;
+}
+.nav-right a{
+	color: black;
+	font-weight: bold;
+      display: inline-block;
+      outline: none;
+      background-color: transparent;
+      position: relative;
+}
+.nav-right a:hover{
+	color: #7d7b75;
+	text-decoration: none;
+    margin-bottom: -2px;
+	border-bottom: 2px solid #7d7b75;
+}
+/* .nav-right a:before{
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: grey;
+      z-index: -1;
+      transition: width 1s linear;
+}
+.nav-right a:hover:before{
+    width: 100%;
+} */
+
+.nav-right button{
+	padding: 0 15px;
+	height: 45px;
+	margin-left: 15px;
+}
+.nav-right button.btn-signup a:hover{
+    color: white;
+}
+.nav-right button.btn-cart a{
+    color: black;
+}
+.nav-right button.btn-cart:hover a{
+    color: white;
+}
+
+.dropdown img{
+    border-radius: 50%;
+}
+.dropdown i{
+    margin-top: 12px;
+}
+.dropdown button{
+    border-radius: 50%;
+    padding: 3px;
+}
+.dropdown .dropdown-menu{
+    margin-left: -95px;
+    background: white;
+}
+.dropdown-menu li:hover{
+    background: #313442 !important;
+}
+.dropdown-menu a{
+    color: black;
+}
+.dropdown-menu hr{
+    margin: 5px 0;
+    border-bottom: 1px solid grey;
+}
+
+.category-section {
+	padding: 15px;
+}
+.cat-item{
+	margin: 0 20px;
+}
+.cat-item a{
+	color: black;
+    transition: all 0.3s linear;
+}
+.cat-item a:hover{
+	color: #7d7b75;
+	text-decoration: none;
+}
+
+
+.carousel-inner img{
+	width: 100%;
+}
+
+
+.shopping-section{
+	margin-top: 55px 0;
+}
+.shopping-section .col-6 a{
+	color: black;
+    transition: all 0.3s linear;
+}
+.shopping-section .col-6 a:hover{
+	color: grey;
+	text-decoration: none;
+}
+.product img{
+  	transition: all 0.5s ease-in-out;
+	transform: translateY(0);
+    height: 140px;
+}
+.product:hover img{
+  	transition: all 0.5s ease-in-out;
+	transform: translateY(-20px);
+}
+.product button{
+	opacity: 0;
+  	transition: all 0.5s ease-in-out;
+	transform: translateY(30px);
+    padding: 3px 11px 2px 8px;
+}
+.product button a{
+    color: black;
+}
+.product button:hover a{
+    color: white;
+}
+.product:hover button{
+	opacity: 1;
+	transform: translateY(0);
+}
+.product-info a{
+    color: black;
+    transition: all 0.3s linear;
+}
+.product-info a:hover{
+    color: grey;
+    text-decoration: none;
+}
+.sneaker-section, .streetwear-section, .watches-section{
+	margin: 60px 0;
+}
+.shopping-section .col-9{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(229px, 1fr));
+    gap: 14px;
+}
+.shopping-section .product{
+	padding: 20px 20px 7px 20px;
+	background-color: white;
+    height: fit-content !important;
+}
+.shopping-section .product-info{
+	margin-top: 12px;
+}
+.shopping-section .product h6, .shopping-section .product p{
+    margin-bottom: 0;
+}
+.shopping-section .product-img img, .shopping-section .product img{
+	width: 100%;
+}
+
+.watches-section h4{
+	margin-bottom: 35px;
+}
+.watches-section h4 a{
+	color: black;
+    transition: all 0.3s linear;
+}
+.watches-section h4 a:hover{
+	color: grey;
+	text-decoration: none;
+}
+.watches-section .col-2 img{
+    margin: 15px 0;
+}
+.watches-section h4 b{
+	padding-bottom: 7px;
+	border-bottom: 7px double black;
+}
+.watches-product {
+	display: grid;
+	grid-template-columns: repeat(3, 229px);
+    grid-template-rows: repeat(2, fit-content());
+    gap: 10px;
+}
+
+.brand-section h4{
+
+}
+.brand-section .carousel-inner{
+	text-align: center;
+}
+.carousel-inner .brand .d-flex{
+    margin-top: -29px;
+}
+.carousel-inner .brand{
+    padding: 0px 20px 0px 20px;
+}
+@media (min-width: 768px){
+.col-md-3 {
+    max-width: 22% !important;
+    padding: 10px 29px;
+    margin: 0 10px;
+}
+.brand-section .brand img{
+	width: 100%;
+}
+
+.fashion-news{
+	margin-top: 55px;
+    margin-bottom: 100px;
+}
+.news-section{
+	display: grid;
+	grid-template-columns: repeat(4, 269px);
+    grid-template-rows: repeat(2, fit-content()) !important;
+    gap: 15px;
+}
+.news{
+	padding: 15px;
+	background: white;
+	height: fit-content;
+}
+.news img{
+	height: 25% !important;
+	transform: scale(1,1);
+	transition: transform 500ms ease-in-out;
+}
+.news img:hover{
+	transform: scale(1.1,1.1);
+}
+.news a{
+    color: black;
+    transition: all 0.3s linear;
+}
+.news a:hover{
+    text-decoration: none;
+    color: grey;
+}
+
+footer{
+	padding-top: 29px;
+	background-color: white;
+    border-top: 1px solid grey;
+}
+footer .col-7 button{
+	margin: 0 7px;
+}
+footer .col-5{
+	 justify-content: right
+}
+footer .col-5 a{
+	color: black;
+	font-weight: bold;
+}
+footer .col-5 a:hover{
+	color: grey;
+	text-decoration: none;
+}
+footer .cre{
+	margin: 20px 0;
+}
+footer .cre .col-2{
+	border-left: 2px solid grey;
+	height: fit-content;
+}
+footer .cre ul{
+	padding-left: 0;
+	margin: 0;
+}
+footer .cre ul li{
+	display: block;
+	font-size: 15px;
+}
+footer .col-4 h6{
+	margin-bottom: 0;
+}
+footer .col-4 .d-flex a{
+	color: black;
+}
+footer .col-4 .d-flex a:hover{
+	text-decoration: none;
+	color: grey;
+}
+footer .col-4 .d-flex i{
+	font-size: 25px;
+	margin: 7px 9px;
+}
+footer hr{
+	width: 100%;
+	margin: 0;
+	border-bottom: 2px solid black;
+}
+footer .cre .col-2 li a:hover{
+    color: black;
+    text-decoration: none;
+    cursor: no-drop;
+}
+
+/* ====================================PRODUCT==================================== */
+
+.banner-product{
+    padding: 37px 0;
+    background: url('../img/poster/browse-headersSneakers.jpg') no-repeat;
+    background-size: 100%;
+}
+.product-body{
+    margin-top: 37px;
+    padding-bottom: 100px;
+}
+.left-item{
+    position: relative;
+    display: grid;
+    justify-content: center;
+    padding: 15px 10px;
+    margin: 29px 0;
+    background: white;
+}
+.left-item h5{
+    font-weight: bold;
+    position: absolute;
+    padding: 5px;
+    background: #efefef;
+}
+.category-item h5{
+    margin-left: 20px;
+    margin-top: -24px;
+}
+.brand-item h5{
+    margin-left: 37px;
+    margin-top: -24px;
+}
+.left-item a{
+    font-weight: bold;
+    color: black;
+    margin: 5px;
+}
+.left-item a:hover{
+    color: grey;
+    text-decoration: none;
+    width: fit-content;
+}
+.feature-product select{
+    border: 1px solid grey;
+    padding: 10px 15px;
+    text-align: center;
+}
+.product-section{
+    display: grid;
+    grid-template-columns: repeat(4, 229px);
+    grid-template-rows: repeat(6, fit-content());
+    gap: 14px;
+}
+.product img{
+    width: 100%;
+    transition: all 0.5s ease-in-out;
+    transform: translateY(0);
+}
+.product:hover img{
+    transition: all 0.5s ease-in-out;
+    transform: translateY(-20px);
+}
+.product button{
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    transform: translateY(30px);
+    padding: 3px 11px 2px 8px;
+}
+.product:hover button{
+    opacity: 1;
+    transform: translateY(0);
+}
+.product{
+    padding: 20px 20px 7px 20px;
+    background-color: white;
+}
+.product-info{
+    margin-top: 12px;
+}
+.product h6, .product p{
+    margin-bottom: 0;
+}
+
+/* ====================================PRODUCT-DETAIL==================================== */
+
+.product-detail-body{
+    background: white;
+    padding-bottom: 100px;
+}
+.product-detail{
+    width: 100%;
+    margin-top: 37px;
+}
+.product-detail-title a{
+    color: black;
+}
+.product-detail-title a:hover{
+    color: grey;
+    text-decoration: none;
+}
+.tag{
+    margin: 10px;
+}
+.tag a{
+    color: green;
+    padding: 3px 10px;
+    border: 1px solid green;
+    border-radius: 12px;
+}
+.tag a:hover{
+    text-decoration: none;
+    color: lightgreen;
+}
+.product-detail-selection{
+    position: relative;
+    margin: 45px 60px 25px 60px;
+    padding: 37px 20px 20px 20px;
+    border: 1px solid grey;
+}
+.product-detail-selection h2{
+    margin-left: 123px;
+    margin-top: -62px;
+    padding: 1px 20px;
+    background: white;
+    position: absolute;
+    border: 1px solid grey;
+}
+.product-detail-selection .qty-select{
+    margin-top: 10px;
+}
+.product-detail-selection button{
+    width: 100%;
+    margin: 7px 0;
+}
+.product-detail-selection button:hover a{
+    color: white;
+}
+.product-detail-selection select{
+    padding: 6px 10px;
+}
+.product-detail-selection .qty{
+    position: relative;
+}
+.product-detail-selection .qty input{
+    position: relative;
+    width: 100%;
+    height: 39px;
+    padding: 0px 10px;
+    margin-left: 10px;
+}
+.product-detail-selection .qty p{
+    padding-top: 3px;
+}
+.product-detail-selection .up-down-ic{
+    position: absolute;
+    display: grid;
+    height: 47px;
+    right: 0;
+    margin-top: -5px;
+    margin-right: 26px;
+}
+.product-detail-selection .up-down-ic a{
+    height: 5px;
+}
+.product-detail-selection .qty .col-4 select{
+    width: 100%;
+    margin: 2px 0 !important;
+
+}
+.product-detail-info .table-info{
+    margin-left: 60px;
+    background: none;
+}
+.product-detail-info .table-info td{
+    padding-right: 29px;
+}
+
+.product-detail-info, .related-product{
+    margin-top: 29px;
+    border-top: 1px solid grey;
+    position: relative;
+}
+.product-detail-info h4, .related-product h4{
+    position: absolute;
+    padding: 5px 20px;
+    margin-top: -24px;
+    margin-left: 20px;
+    background: grey;
+    color: white;
+    width: fit-content;
+}
+.product-detail-info .d-flex, .related-product .product{
+    margin-top: 37px;
+}
+.related-product .product img{
+    width: 100%;
+}
+.related-product .product{
+    padding: 20px 20px 7px 20px;
+    background-color: white;
+}
+.related-product .product-info{
+    margin-top: 12px;
+}
+.related-product .product h6, .related-product .product p{
+    margin: 0;
+}
+
+/* ====================================CART==================================== */
+
+.cart-body{
+    padding-top: 37px;
+    padding-bottom: 100px;
+    background: white;
+}
+.product-cart{
+    margin-bottom: 29px;
+}
+.product-cart table{
+    border: 3px solid grey !important;
+}
+.product-cart .tbl-header{
+    background: grey;
+    color: white;
+}
+.product-cart .tbl-header td{
+    border: 1px solid white;
+}
+.product-cart .tbl-body td{
+    border: 1px solid grey;
+    margin-bottom: 29px;
+}
+.product-cart .tbl-body a{
+    color: black;
+}
+.product-cart .tbl-body a:hover{
+    color: grey;
+}
+
+/* ====================================CHECKOUT==================================== */
+
+.checkout-body{
+    padding-top: 37px;
+    padding-bottom: 100px;
+    background: white;
+}
+.list-item{
+    margin-top: 29px;
+    vertical-align: center;
+}
+.client-info{
+    margin: 0 20px 20px 20px;
+}
+.client-info{
+    border: 1px solid grey;
+    padding: 15px;
+}
+.client-info input{
+    width: 100%;
+    background: none;
+    border: 1px solid grey;
+    padding: 7px 15px;
+    margin: 7px 0;
+
+}
+.checkout-section{
+    border: 1px solid grey;
+    padding: 15px;
+    margin: 0 20px;
+}
+table tr{
+    margin: 15px 10px;
+}
+table td{
+    padding: 5px 15px;
+}
+.checkout-section select{
+    padding: 4px 10px;
+    margin-left: 10px;
+    margin-top: -6px;
+    width: 100%;
+}
+.checkout-section button{
+    width: 100%;
+}
+
+/* ====================================PAYMENT==================================== */
+
+.payment-body{
+    padding-top: 37px;
+    padding-bottom: 100px;
+    background: white;
+}
+.payment-item input{
+    width: 30px;
+    height: 17px;
+}
