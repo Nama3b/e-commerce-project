@@ -6,7 +6,7 @@ use App\Support\WithPaginationLimit;
 use Illuminate\Foundation\Http\FormRequest;
 use JetBrains\PhpStorm\ArrayShape;
 
-class ProductCommonClass
+class FavoriteCommonClass
 {
 
     use WithPaginationLimit;

@@ -18,11 +18,11 @@ class Editor extends ProductCommonClass
     }
 
     /**
-     * @param Product $Product
+     * @param Product $product
      * @return bool
      */
-    public function edit(Product $Product): bool
+    public function edit(Product $product): bool
     {
-        return $Product->update($this->buildCreateData(true, $Product));
+        return $product->update($this->buildCreateData(true, $product));
     }
 }

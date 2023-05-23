@@ -4,7 +4,7 @@ namespace App\Transformers\Product;
 
 use League\Fractal\TransformerAbstract;
 
-class ShowProductTransformer extends TransformerAbstract
+class DetailProductCategoryTransformer extends TransformerAbstract
 {
     /**
      * List of resources to automatically include
@@ -14,7 +14,7 @@ class ShowProductTransformer extends TransformerAbstract
     protected array $defaultIncludes = [
         //
     ];
-    
+
     /**
      * List of resources possible to include
      *
@@ -23,7 +23,7 @@ class ShowProductTransformer extends TransformerAbstract
     protected array $availableIncludes = [
         //
     ];
-    
+
     /**
      * A Fractal transformer.
      *

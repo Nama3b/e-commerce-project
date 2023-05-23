@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Transformers\Product;
+namespace App\Transformers\Order;
 
 use League\Fractal\TransformerAbstract;
 
-class ShowProductCategoryTransformer extends TransformerAbstract
+class DetailOrderTransformer extends TransformerAbstract
 {
     /**
      * List of resources to automatically include
@@ -14,7 +14,7 @@ class ShowProductCategoryTransformer extends TransformerAbstract
     protected array $defaultIncludes = [
         //
     ];
-    
+
     /**
      * List of resources possible to include
      *
@@ -23,7 +23,7 @@ class ShowProductCategoryTransformer extends TransformerAbstract
     protected array $availableIncludes = [
         //
     ];
-    
+
     /**
      * A Fractal transformer.
      *

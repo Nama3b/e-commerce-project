@@ -6,7 +6,7 @@ use App\Support\WithPaginationLimit;
 use Illuminate\Foundation\Http\FormRequest;
 use JetBrains\PhpStorm\ArrayShape;
 
-class ProductCommonClass
+class OrderCommonClass
 {
 
     use WithPaginationLimit;
@@ -27,33 +27,35 @@ class ProductCommonClass
 
     /**
      * @param bool $edit
-     * @param $post
+     * @param $order
      * @return array
      */
-    #[ArrayShape([])] public function buildCreateData(bool $edit = false, $post = null): array
+    #[ArrayShape([])] public function buildCreateData(bool $edit = false, $order = null): array
     {
         return [
-            'category_id' => $this->makeField($post, $edit, 'category_id'),
-            'creator' => $this->makeField($post, $edit, 'creator'),
-            'name' => $this->makeField($post, $edit, 'name'),
-            'description' => $this->makeField($post, $edit, 'description'),
-            'price' => $this->makeField($post, $edit, 'price'),
-            'quantity' => $this->makeField($post, $edit, 'quantity'),
-            'image' => $this->request->hasFile('image') ? $this->uploadImage() : $post->image,
-            'status' => $this->makeField($post, $edit, 'status'),
+            'customer_id' => $this->makeField($order, $edit, 'customer_id'),
+            'shipping_id' => $this->makeField($order, $edit, 'shipping_id'),
+            'name' => $this->makeField($order, $edit, 'name'),
+            'email' => $this->makeField($order, $edit, 'email'),
+            'address' => $this->makeField($order, $edit, 'address'),
+            'phone_number' => $this->makeField($order, $edit, 'phone_number'),
+            'notice' => $this->makeField($order, $edit, 'notice'),
+            'total' => $this->makeField($order, $edit, 'total'),
+            'status' => $this->makeField($order, $edit, 'status'),
+            'order_update_date' => $this->makeField($order, $edit, 'order_update_date'),
         ];
     }
 
     /**
-     * @param $post
+     * @param $order
      * @param $edit
      * @param string $fil
      * @return mixed
      */
-    private function makeField($post, $edit, string $fil = ''): mixed
+    private function makeField($order, $edit, string $fil = ''): mixed
     {
         return $this->existField($edit) ?
-            $post->{$fil} :
+            $order->{$fil} :
             $this->request->input($fil);
     }
 

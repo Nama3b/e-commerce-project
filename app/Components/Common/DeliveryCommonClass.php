@@ -6,7 +6,7 @@ use App\Support\WithPaginationLimit;
 use Illuminate\Foundation\Http\FormRequest;
 use JetBrains\PhpStorm\ArrayShape;
 
-class ProductCommonClass
+class DeliveryCommonClass
 {
 
     use WithPaginationLimit;
@@ -27,33 +27,31 @@ class ProductCommonClass
 
     /**
      * @param bool $edit
-     * @param $post
+     * @param $delivery
      * @return array
      */
-    #[ArrayShape([])] public function buildCreateData(bool $edit = false, $post = null): array
+    #[ArrayShape([])] public function buildCreateData(bool $edit = false, $delivery = null): array
     {
         return [
-            'category_id' => $this->makeField($post, $edit, 'category_id'),
-            'creator' => $this->makeField($post, $edit, 'creator'),
-            'name' => $this->makeField($post, $edit, 'name'),
-            'description' => $this->makeField($post, $edit, 'description'),
-            'price' => $this->makeField($post, $edit, 'price'),
-            'quantity' => $this->makeField($post, $edit, 'quantity'),
-            'image' => $this->request->hasFile('image') ? $this->uploadImage() : $post->image,
-            'status' => $this->makeField($post, $edit, 'status'),
+            'service_name' => $this->makeField($delivery, $edit, 'service_name'),
+            'creator' => $this->makeField($delivery, $edit, 'creator'),
+            'payment_option_id' => $this->makeField($delivery, $edit, 'payment_option_id'),
+            'delivery_fee' => $this->makeField($delivery, $edit, 'delivery_fee'),
+            'delivery_time' => $this->makeField($delivery, $edit, 'delivery_time'),
+            'description' => $this->makeField($delivery, $edit, 'description'),
         ];
     }
 
     /**
-     * @param $post
+     * @param $delivery
      * @param $edit
      * @param string $fil
      * @return mixed
      */
-    private function makeField($post, $edit, string $fil = ''): mixed
+    private function makeField($delivery, $edit, string $fil = ''): mixed
     {
         return $this->existField($edit) ?
-            $post->{$fil} :
+            $delivery->{$fil} :
             $this->request->input($fil);
     }
 

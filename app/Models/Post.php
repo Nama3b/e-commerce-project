@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Barryvdh\LaravelIdeHelper\Eloquent;
+use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -10,11 +10,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 
+
 /**
  * App\Models\Post
  *
- * @property integer $id
- * @property integer $author
+ * @property int $id
+ * @property int $author
  * @property string $title
  * @property string $content
  * @property string $post_type
@@ -22,8 +23,8 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property Carbon|null $deleted_at
- * @property-read Customer $customer_author
- * @property-read Member $member_author
+ * @property-read Customer|null $customer
+ * @property-read Member|null $member
  * @method static Builder|Post newModelQuery()
  * @method static Builder|Post newQuery()
  * @method static Builder|Post onlyTrashed()

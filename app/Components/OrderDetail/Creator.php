@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Components\Order;
+namespace App\Components\OrderDetail;
 
 use App\Components\Common\OrderCommonClass;
-use App\Models\Order;
+use App\Models\OrderDetail;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -19,10 +19,10 @@ class Creator extends OrderCommonClass
     }
 
     /**
-     * @return Model|Order
+     * @return Model|OrderDetail
      */
-    public function create(): Model|Order
+    public function create(): Model|OrderDetail
     {
-        return Order::create($this->buildCreateData());
+        return OrderDetail::create($this->buildCreateData());
     }
 }

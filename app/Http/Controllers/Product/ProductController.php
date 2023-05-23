@@ -40,8 +40,9 @@ class ProductController extends Controller
             "placeholder" => "Select multiple options..",
             "allowClear" => true
         ];
+
         return (new $instance)
-            ->render('admin.pages.Product', compact('config', 'filter', 'editor', 'modal_size', 'create'));
+            ->render('admin.pages.product', compact('config', 'filter', 'editor', 'modal_size', 'create'));
     }
 
     /**
@@ -60,14 +61,14 @@ class ProductController extends Controller
     }
 
     /**
-     * @param Product $Product
+     * @param Product $product
      * @param EditProductRequest $request
      * @return JsonResponse|mixed
      */
-    public function edit(Product $Product, EditProductRequest $request): mixed
+    public function edit(Product $product, EditProductRequest $request): mixed
     {
-        return $this->withComponentErrorHandling(function () use ($Product, $request) {
-            $status = (new Editor($request))->edit($Product);
+        return $this->withComponentErrorHandling(function () use ($product, $request) {
+            $status = (new Editor($request))->edit($product);
 
             return $status ?
                 $this->respondOk() :
@@ -76,14 +77,14 @@ class ProductController extends Controller
     }
 
     /**
-     * @param Product $Product
+     * @param Product $product
      * @param Request $request
      * @return JsonResponse|mixed
      */
-    public function delete(Product $Product, Request $request): mixed
+    public function delete(Product $product, Request $request): mixed
     {
-        return $this->withComponentErrorHandling(function () use ($Product, $request) {
-            $status = $Product->delete();
+        return $this->withComponentErrorHandling(function () use ($product, $request) {
+            $status = $product->delete();
 
             return $status ?
                 $this->respondOk() :
@@ -92,15 +93,15 @@ class ProductController extends Controller
     }
 
     /**
-     * @param Product $Product
+     * @param Product $product
      * @return JsonResponse|mixed
      */
-    public function detail(Product $Product): mixed
+    public function detail(Product $product): mixed
     {
-        return $this->withComponentErrorHandling(function () use ($Product) {
+        return $this->withComponentErrorHandling(function () use ($product) {
 
             return fractal()
-                ->item($Product)
+                ->item($product)
                 ->transformWith(new DetailProductTransformer())
                 ->respond();
         });

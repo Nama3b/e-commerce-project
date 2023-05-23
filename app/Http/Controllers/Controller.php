@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CategoryPost;
+use App\Models\Comment;
+use App\Models\Customer;
+use App\Models\Delivery;
+use App\Models\Member;
+use App\Models\Order;
+use App\Models\OrderDetail;
 use App\Models\Permission;
 use App\Models\Post;
+use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Role;
-use App\Models\Admin;
+use App\Models\Shipping;
+use App\Models\Tag;
 use App\Support\HandleComponentError;
 use App\Support\HandleJsonResponses;
 use App\Support\WithPaginationLimit;
@@ -30,14 +37,50 @@ class Controller extends BaseController
             'database' => 'App\DataTables\User\RoleDataTable',
             'role_create' => Role::CREATE,
         ],
+        'delivery' => [
+            'database' => 'App\DataTables\DeliveryDataTable',
+            'role_create' => Delivery::CREATE,
+        ],
+        'shipping' => [
+            'database' => 'App\DataTables\ShippingDataTable',
+            'role_create' => Shipping::CREATE,
+        ],
+        'order' => [
+            'database' => 'App\DataTables\OrderDataTable',
+            'role_create' => Order::CREATE,
+        ],
+        'order_detail' => [
+            'database' => 'App\DataTablesOrderDetailDataTable',
+            'role_create' => OrderDetail::CREATE,
+        ],
         'post' => [
             'database' => 'App\DataTables\PostDataTable',
             'role_create' => Post::CREATE,
         ],
         'product_category' => [
-            'database' => 'App\DataTables\CategoryProductDataTable',
+            'database' => 'App\DataTables\ProductCategoryDataTable',
             'role_create' => ProductCategory::CREATE,
-        ]
+        ],
+        'product' => [
+            'database' => 'App\DataTables\ProductDataTable',
+            'role_create' => Product::CREATE,
+        ],
+        'customer' => [
+            'database' => 'App\DataTables\CustomerDataTable',
+            'role_create' => Customer::CREATE,
+        ],
+        'member' => [
+            'database' => 'App\DataTables\MemberDataTable',
+            'role_create' => Member::CREATE,
+        ],
+        'comment' => [
+            'database' => 'App\DataTables\CommentDataTable',
+            'role_create' => Comment::CREATE,
+        ],
+        'tag' => [
+            'database' => 'App\DataTables\TagDataTable',
+            'role_create' => Tag::CREATE,
+        ],
     ];
 
     /**

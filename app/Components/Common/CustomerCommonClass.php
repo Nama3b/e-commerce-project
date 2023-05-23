@@ -6,7 +6,7 @@ use App\Support\WithPaginationLimit;
 use Illuminate\Foundation\Http\FormRequest;
 use JetBrains\PhpStorm\ArrayShape;
 
-class ProductCommonClass
+class CustomerCommonClass
 {
 
     use WithPaginationLimit;
@@ -27,33 +27,33 @@ class ProductCommonClass
 
     /**
      * @param bool $edit
-     * @param $post
+     * @param $customer
      * @return array
      */
-    #[ArrayShape([])] public function buildCreateData(bool $edit = false, $post = null): array
+    #[ArrayShape([])] public function buildCreateData(bool $edit = false, $customer = null): array
     {
         return [
-            'category_id' => $this->makeField($post, $edit, 'category_id'),
-            'creator' => $this->makeField($post, $edit, 'creator'),
-            'name' => $this->makeField($post, $edit, 'name'),
-            'description' => $this->makeField($post, $edit, 'description'),
-            'price' => $this->makeField($post, $edit, 'price'),
-            'quantity' => $this->makeField($post, $edit, 'quantity'),
-            'image' => $this->request->hasFile('image') ? $this->uploadImage() : $post->image,
-            'status' => $this->makeField($post, $edit, 'status'),
+            'email' => $this->makeField($customer, $edit, 'email'),
+            'password' => $this->makeField($customer, $edit, 'password'),
+            'full_name' => $this->makeField($customer, $edit, 'full_name'),
+            'address' => $this->makeField($customer, $edit, 'address'),
+            'phone_number' => $this->makeField($customer, $edit, 'phone_number'),
+            'birthday' => $this->makeField($customer, $edit, 'birthday'),
+            'avatar' => $this->request->hasFile('avatar') ? $this->uploadImage() : $customer->image,
+            'status' => $this->makeField($customer, $edit, 'status'),
         ];
     }
 
     /**
-     * @param $post
+     * @param $customer
      * @param $edit
      * @param string $fil
      * @return mixed
      */
-    private function makeField($post, $edit, string $fil = ''): mixed
+    private function makeField($customer, $edit, string $fil = ''): mixed
     {
         return $this->existField($edit) ?
-            $post->{$fil} :
+            $customer->{$fil} :
             $this->request->input($fil);
     }
 
