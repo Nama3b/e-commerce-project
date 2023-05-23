@@ -225,18 +225,9 @@ Route::middleware(['auth:web'])->prefix('admin')->group(function () {
     Route::get('favorite', [FavoriteController::class, 'list'])
         ->name('favorite')
         ->middleware(['checkManagerPermission:VIEW_FAVORITE']);
-    Route::get('favorite/detail/{favorite}', [FavoriteController::class, 'detail'])
-        ->name('favorite.detail')
-        ->middleware(['checkManagerPermission:VIEW_FAVORITE']);
     Route::post('favorite/store', [FavoriteController::class, 'store'])
         ->name('favorite.store')
         ->middleware(['checkManagerPermission:CREATE_FAVORITE']);
-    Route::post('favorite/edit/{favorite}', [FavoriteController::class, 'update'])
-        ->name('favorite.edit')
-        ->middleware(['checkManagerPermission:EDIT_FAVORITE']);
-    Route::delete('favorite/delete/{favorite}', [FavoriteController::class, 'delete'])
-        ->name('favorite.delete')
-        ->middleware(['checkManagerPermission:DELETE_FAVORITE']);
 
     Route::get('image', [ImageController::class, 'list'])
         ->name('image')
