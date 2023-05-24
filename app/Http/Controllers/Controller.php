@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Comment;
 use App\Models\Customer;
 use App\Models\Delivery;
+use App\Models\Image;
 use App\Models\Member;
 use App\Models\Order;
 use App\Models\OrderDetail;
@@ -80,6 +81,10 @@ class Controller extends BaseController
         'tag' => [
             'database' => 'App\DataTables\TagDataTable',
             'role_create' => Tag::CREATE,
+        ],
+        'image' => [
+            'database' => 'App\DataTables\ImageDataTable',
+            'role_create' => Image::CREATE,
         ],
     ];
 
