@@ -24,7 +24,7 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null $updated_at
  * @property Carbon|null $deleted_at
  * @property-read Member|null $member
- * @property-read PaymentOption|null $payments
+ * @property-read PaymentOption|null $payment
  * @method static Builder|Delivery newModelQuery()
  * @method static Builder|Delivery newQuery()
  * @method static Builder|Delivery onlyTrashed()
@@ -82,7 +82,7 @@ class Delivery extends Model
     /**
      * @return BelongsTo
      */
-    public function payments(): BelongsTo
+    public function payment(): BelongsTo
     {
         return $this->BelongsTo(PaymentOption::class,'id', 'payment_option_id');
     }

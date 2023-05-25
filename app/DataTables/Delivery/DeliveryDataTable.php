@@ -2,7 +2,7 @@
 
 namespace App\DataTables\Delivery;
 
-use App\Models\Post;
+use App\Models\Delivery;
 use App\Support\DataTableCommonFunction;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
@@ -30,36 +30,29 @@ class DeliveryDataTable extends DataTable
             ->filter(function ($query) {
                 $this->buildQuerySearch($query);
             })
-            ->addColumn(__('generate.translate.button.action'), function (Post $post) {
-                return $this->buildAction($post);
+            ->addColumn(__('generate.translate.button.action'), function (Delivery $delivery) {
+                return $this->buildAction($delivery);
             })
-            ->addColumn('checkbox', function (Post $post) {
-                return $this->checkbox($post);
+            ->addColumn('checkbox', function (Delivery $delivery) {
+                return $this->checkbox($delivery);
             })
-            ->editColumn('author', function (Post $post) {
-                return $post->author;
+            ->editColumn('service_name', function (Delivery $delivery) {
+                return $delivery->service_name;
             })
-            ->editColumn('post_type', function (Post $post) {
-                return match ($post->post_type) {
-                    'PRODUCT' => 'Product',
-                    'POST' => 'Post',
-                };
+            ->editColumn('creator', function (Delivery $delivery) {
+                return $delivery->member::pluck('name', 'id');
             })
-            ->editColumn('title', function (Post $post) {
-                return Str::words(strip_tags($post->title), 10);
+            ->editColumn('payment_option_id', function (Delivery $delivery) {
+                return $delivery->payment::pluck('name', 'id');
             })
-            ->editColumn('content', function (Post $post) {
-                return Str::words(strip_tags($post->content), 10);
+            ->editColumn('delivery_fee', function (Delivery $delivery) {
+                return Str::words(strip_tags($delivery->delivery_fee), 10);
             })
-            ->editColumn('image', function (Post $post) {
-                return $this->buildImage($post);
+            ->editColumn('delivery_time', function (Delivery $delivery) {
+                return Str::words(strip_tags($delivery->delivery_time), 10);
             })
-            ->editColumn('status', function (Post $post) {
-                return match ($post->status) {
-                    'WAITING' => 'Waiting',
-                    'ACTIVE' => 'Active',
-                    'CLOSED' => 'Closed'
-                };
+            ->editColumn('description', function (Delivery $delivery) {
+                return $this->buildImage($delivery);
             })
             ->rawColumns([__('generate.translate.button.action'), 'type', 'status']);
     }
@@ -70,7 +63,7 @@ class DeliveryDataTable extends DataTable
      */
     private function buildQuerySearch($query)
     {
-        foreach (__('generate.post.filter') as $key => $value) {
+        foreach (__('generate.Delivery.filter') as $key => $value) {
             if (request()->filled($key)) {
                 if ($key == 'status') {
                     $query->where($key, request()->get($key));
@@ -82,20 +75,20 @@ class DeliveryDataTable extends DataTable
     }
 
     /**
-     * @param $post
+     * @param $delivery
      * @return string
      * .
      */
-    private function buildAction($post): string
+    private function buildAction($delivery): string
     {
-        $action = Gate::allows(Post::EDIT) ? '<a href="javascript:void(0);" class="btn btn-light btn-xs d-inline-flex py-1 mx-1 inline_edit" data-id="' . $post->id . '">'
+        $action = Gate::allows(Delivery::EDIT) ? '<a href="javascript:void(0);" class="btn btn-light btn-xs d-inline-flex py-1 mx-1 inline_edit" data-id="' . $delivery->id . '">'
             . '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">'
             . '<path stroke="#29B0FF" stroke-linecap="round" stroke-linejoin="round" d="M9.13306 13.2654H13.3844" />'
             . '<path stroke="#29B0FF" stroke-linecap="round" stroke-linejoin="round" d="M8.57 3.30378C9.06131 2.67778 9.85531 2.71044 10.482 3.20178L11.4086 3.92844C12.0353 4.41978 12.2573 5.18178 11.766 5.80911L6.23997 12.8591C6.05531 13.0951 5.77331 13.2344 5.47331 13.2378L3.34197 13.2651L2.85931 11.1884C2.79131 10.8971 2.85931 10.5904 3.04397 10.3538L8.57 3.30378Z" />'
             . '<path stroke="#29B0FF" stroke-linecap="round" stroke-linejoin="round" d="M7.53516 4.62402L10.7312 7.12936" />'
             . '</svg>'
             . '</a>' : '';
-        $action .= Gate::allows(Post::DELETE) ? '<a href="javascript:void(0);" class="btn btn-light btn-xs d-inline-flex py-1 mx-1 inline_delete" data-id="' . $post->id . '" >'
+        $action .= Gate::allows(Delivery::DELETE) ? '<a href="javascript:void(0);" class="btn btn-light btn-xs d-inline-flex py-1 mx-1 inline_delete" data-id="' . $delivery->id . '" >'
             . '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">'
             . '<path stroke="#E26258" stroke-linecap="round" stroke-linejoin="round" d="M12.8833 6.31213C12.8833 6.31213 12.5213 10.8021 12.3113 12.6935C12.2113 13.5968 11.6533 14.1261 10.7393 14.1428C8.99994 14.1741 7.25861 14.1761 5.51994 14.1395C4.64061 14.1215 4.09194 13.5855 3.99394 12.6981C3.78261 10.7901 3.42261 6.31213 3.42261 6.31213" />'
             . '<path stroke="#E26258" stroke-linecap="round" stroke-linejoin="round" d="M13.8056 4.15981H2.50024" />'
@@ -106,24 +99,24 @@ class DeliveryDataTable extends DataTable
     }
 
     /**
-     * @param $post
+     * @param $delivery
      * @return string
      */
-    private function checkbox($post): string
+    private function checkbox($delivery): string
     {
         return '<div class="custom-control custom-checkbox">'
-            . '<input id="checkRow-' . $post->id . '" class="custom-control-input" type="checkbox" value="' . $post->id . '" />'
-            . '<label for="checkRow-' . $post->id . '" class="custom-control-label"></label>'
+            . '<input id="checkRow-' . $delivery->id . '" class="custom-control-input" type="checkbox" value="' . $delivery->id . '" />'
+            . '<label for="checkRow-' . $delivery->id . '" class="custom-control-label"></label>'
             . '</div>';
     }
 
     /**
-     * @param $post
+     * @param $delivery
      * @return string
      */
-    private function buildImage($post): string
+    private function buildImage($delivery): string
     {
-        return $post->image ? '<img src="' . Storage::url($post->image) . '" alt="' . $post->title . '" height="50" />' : '';
+        return $delivery->image ? '<img src="' . Storage::url($delivery->image) . '" alt="' . $delivery->title . '" height="50" />' : '';
     }
 
     /**
@@ -137,7 +130,7 @@ class DeliveryDataTable extends DataTable
             ->setTableId('dataTable')
             ->columns($this->getColumns())
             ->parameters($this->buildParameters())
-            ->ajax($this->buildAjaxData(Post::class, 'post'))
+            ->ajax($this->buildAjaxData(Delivery::class, 'Delivery'))
             ->orderBy(1)
             ->buttons(['remove'])
             ->dom("Bt<'row my-4 pb-2'<'col-sm-6'l><'col-sm-6'p>>");
@@ -187,6 +180,6 @@ class DeliveryDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'Post_' . date('YmdHis');
+        return 'Delivery_' . date('YmdHis');
     }
 }
